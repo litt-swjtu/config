@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+#        配置git的地址，用户名密码以及本地的配置中心仓库basedir
+        git:
+          uri: https://gitee.com/litt_swjtu/config-repo.git
+          force-pull: true
+          username: litt_swjtu
+          password: 112167ltd@Git
+          basedir: E:\Program Files\IntelliJ IDEA\IntelliJ IDEA Project\config\basedir
+#  配置rabbitMQ的访问地址和端口，以及登录用户名和密码
+  rabbitmq:
+    host: 192.168.100.101
+    port: 5672
+    username: admin
+    password: admin
+#  配置服务注册中心的地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+#   将config-client的所有端口全都暴露出去（使用*）
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
